@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+    <!-- CS:2420 Group 3-->
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+        <title>Group 3 - Search</title>
+    </head>
+
+    <body>
+        <div class="col d-flex justify-content-center">
+            <div class="card text-center w-90">
+                <div class="card-header">
+                    <h2>Search Items</h2>
+                </div>
+                <div class="card-body">
+                    <form name="items" action="/search" method="POST">
+                        Code<input type="text" name="quantity" style="width: 50px">
+                    </form>
+                    <br>
+                    <form name="items" action="/search" method="POST">
+                        Vendor<input type="text" name="quantity" style="width: 50px">
+                    </form>
+                    <br>
+                    <form name="altItem" action="/search" method="POST">
+                        Accept Alt Item
+                        <select name="altItems">
+                            <option value="#">ACCEPT ALT ITEM</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    </form>
+                    <br>
+                    <form name="quantity" action="/search" method="POST">
+                        Quantity<input type="text" name="quantity" style="width: 50px">
+                    </form>
+                    <br>
+                    <div class="actions"><input type="submit" value="Submit" style="margin-top: 20px"></div>
+                    <br>
+                    <table class = "table table-hover" border="1" cellpadding="5" cellspacing="5">
+                            <thead>
+                              <tr>
+                                <th>Item Code</th>
+                                <th>Item Name</th>
+                                <th>Description</th>
+                                <th>Price</th>
+                                <th>Vendor</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                                {% for row in table %}
+                                    <tr>
+                                    {% for d in row %}
+                                        <td>{{ d }}</td>
+                                    {% endfor %}
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
